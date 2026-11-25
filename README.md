@@ -33,7 +33,7 @@ flutter build web --release
 
 Windows users can also run `./build-apks.ps1`. Build outputs are intentionally excluded from Git.
 
-The generated `build/web` directory can be deployed as a static site to Vercel. Uploading this repository alone does not deploy the website; configure a Flutter build environment or deploy the locally built web directory.
+To host on Vercel, import this repository and leave Root Directory at the repository root. The included `vercel.json` configures the Flutter build and serves `build/web`. The build script downloads the pinned Flutter SDK automatically. Pushes to the connected production branch trigger new deployments. If the project was imported before this configuration was added, redeploy the latest commit and use the production domain shown in the Vercel dashboard.
 
 ## Checks
 
