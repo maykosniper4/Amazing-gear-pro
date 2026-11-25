@@ -126,6 +126,16 @@ class _GameScreenState extends State<GameScreen>
 
   void _handleKeyEvent(KeyEvent event) {
     if (event is! KeyDownEvent) return;
+    if (_controller.showThemePicker) return;
+    if (event.logicalKey == LogicalKeyboardKey.space) {
+      if (_controller.state == GameState.gameOver) {
+        _controller.restartGame();
+      }
+      if (_controller.state == GameState.playing) {
+        _world.start();
+      }
+      return;
+    }
     if (_controller.state != GameState.playing) return;
 
     if (event.logicalKey == LogicalKeyboardKey.arrowLeft ||

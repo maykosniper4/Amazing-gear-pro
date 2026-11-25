@@ -56,6 +56,15 @@ class GameWorld extends ChangeNotifier {
     notifyListeners();
   }
 
+  void start() {
+    if (!isAlive || isStarted) return;
+    isStarted = true;
+    Sounds.playJump();
+    gear.jumpRight();
+    gear.vx = 0; // Space starts with a neutral jump; arrows choose direction.
+    notifyListeners();
+  }
+
   void tapLeft() {
     if (!isAlive) return;
     if (!isStarted) isStarted = true;
